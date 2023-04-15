@@ -1,0 +1,65 @@
+.containerCard{
+    display: inline-flex;
+    flex-direction:column;
+    border-color: rgb(163, 170, 168);
+    border-style:outset;
+    border-radius: 10%;
+    margin: 150px 10px 0px 10px;    
+    width: 220px;
+  height: 330px;
+  background-color: rgb(231, 224, 214);
+}
+@keyframes flotar {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .containerCard {
+    animation: flotar 2s ease-in-out infinite;
+  }
+
+.containerCard:hover{
+   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+   
+    
+}
+
+.infoCard{
+    justify-content: center;
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display:inline-block;
+    margin-top: -9px;
+    
+}
+
+.infoName{
+    font-size: 26px;
+    background-color: aliceblue;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+}
+
+.image{
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    
+}
+.image:hover{
+    
+    box-shadow: 3px 6px 6px rgb(144, 231, 13);
+}
+
+.button{
+    margin: auto;
+    background-color: greenyellow;
+}
