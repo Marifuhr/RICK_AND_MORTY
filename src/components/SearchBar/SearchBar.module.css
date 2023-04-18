@@ -1,0 +1,41 @@
+   .containerSearch{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ .containerSearch.transparencia {
+    opacity: 0.8;
+  }   
+
+.input{
+    
+    width: 70%;
+    height: 25px;
+    margin: 13px 5px 10px 500px;
+    border: 5% rgb(202, 188, 188);
+    border-style: outset;
+    border-radius: 5%;
+    
+}
+
+.button{
+    font-size: 15px;
+    border-style:outset;
+    border-color: bisque;
+    margin: 10px 7px 10px 5px;
+    border-radius: 5px;
+}
+.button:hover{
+    background-color: rgb(71, 238, 38);
+}
+.aleatorio{
+    font-size: 15px;
+    border-style:outset;
+    border-color: bisque;
+    margin: 10px 10px 10px 5px;
+    border-radius: 5px;
+}
+.aleatorio:hover{
+    background-color: rgb(223, 118, 223);
+}
