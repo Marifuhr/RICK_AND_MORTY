@@ -14,11 +14,18 @@ const NavLinkMe = ({to, children, ...props}) =>{
     )
 }
 export default function Nav(props){
+    // console.log(props)
+    
     return(
         <div className={styles.barra}>
             <NavLinkMe to="/home">Home</NavLinkMe>
             <NavLinkMe to="/about">About</NavLinkMe>
-            <SearchBar onSearch={(characterID) => props.onSearch(characterID)} />
+            <NavLinkMe to="/favorites">Favoritos</NavLinkMe>
+            <SearchBar onSearch={(characterID) => props.onSearch(characterID)} logOut={props.logOut} />
+       
+
+         
+
         </div>
        
     )

@@ -1,15 +1,53 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './Card.module.css'
 import { Link } from 'react-router-dom'
+import { connect } from "react-redux"
+import { addFavorite, removeFavorite } from '../Redux/Actions';
 
-export default function Card({ id, name,  species, gender, image, onClose }) {
+function Card({ id, name,  species, gender, image, onClose, addFavorite, removeFavorite }) {
+
+const [myFavorites, setMyFavorites] = useState([])
+const [isFav, setIsFav]= useState(false)
+
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      removeFavorite(id)
+    } else {
+      setIsFav(true);
+      addFavorite({id: id, name: name, species: species, gender: gender, image: image});
+    }
+  }
+ //---El useEffect comprueba que la card esté dentro de favoritos------- 
+  //---El useEfect actualiza la lista de favorito------------------------
+  useEffect(() => {
+   if(myFavorites.length > 0) {
+    myFavorites.forEach(fav =>{
+      if(fav.id === id){
+        setIsFav(true)
+      }
+    })
+   }
+  }, [id, myFavorites])
 
 
    return (
       
       <div className={styles.containerCard}>
+        <button className={styles.button} onClick={onClose}>X</button>
 
-      <button className={styles.button} onClick={onClose}>X</button>
+           {
+           isFav ? (
+        <button className={styles.corazon} onClick={handleFavorite}>❤️
+        </button>
+      ) : (
+        <button className={styles.corazon} onClick={handleFavorite}>🤍
+        </button>
+      )}
+
+      {/*  El condicional "!props.isFavorite && ..." se usa para quitar el boton X de la card cuando este "true" en el componente Favorites */}
+      {/* {!props.isFavorite && (<button className={styles.buttonCard} onClick={props.onClose}> X </button>)} */}
+     
 
        <h2 className={styles.infoName}>{name}</h2>
 
@@ -18,28 +56,29 @@ export default function Card({ id, name,  species, gender, image, onClose }) {
    </Link>
          <h2 className={styles.infoCard}>{species}</h2>
          <h2 className={styles.infoCard}>{gender}</h2>
+      
       </div>
 
    )
 }
-{/* <div className={styles.card}>
-      
-        <button className={styles.cardButton} onClick={props.onCloseCard}> X
-        </button>
-      
-      <h3>{props.id}</h3>
-      <div className={styles.name}>
-        <h2>{props.name}</h2>
-      </div>
-      <div className={styles.speciesYGenero}>
-        <h2>{props.species}</h2>
-        <h2>{props.gender}</h2>
-      </div>
+//----myFavorites ya es una parte de las props
+function mapStateToProps(state) {
+  return{
+    myFavorites: state.myFavorites
+  }
+}
+function mapDispatchToProps(dispatch){
+  return {
+    addFavorite: (character) => {
+      dispatch(addFavorite(character))
+    },
+    removeFavorite: (id) => {
+      dispatch(removeFavorite(id))
+    }
+  }
 
-      <Link to={`/detail/${id}`}>
-        <img src={props.image} alt={props.name} />
-      </Link>
-    </div>
-  );  */}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Card); //mapDispatchToProps se usa porque no se quiere traer el estado global, ya eur no se necesita
+
 
 

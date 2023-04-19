@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styles from './SearchBar.module.css'
 
 export default function SearchBar(props) {
+   console.log(props)
 
    const [character, setCharacter] = useState("")
 
@@ -17,6 +18,10 @@ export default function SearchBar(props) {
       setCharacter("");
     };
 
+      const handleLogOut = () => {
+       props.logOut();
+    };
+  
 
    function handleRandomSearch(event) {
       event.preventDefault();
@@ -24,8 +29,7 @@ export default function SearchBar(props) {
       const randomId = Math.floor(Math.random() * maxId) + 690;  // Genera un número aleatorio entre 1 y maxId
       props.onSearch(randomId);
     }
-
-
+   
 
 
    return (
@@ -40,6 +44,9 @@ export default function SearchBar(props) {
   />
          <button className={styles.button} onClick={handleAddCharacter}>Agregar</button> 
          <button className={styles.aleatorio} onClick={handleRandomSearch}>Aleatorio</button>
+         <button className={styles.buttonSalir} onClick={handleLogOut}>Salir</button>
+         
+        
       </div>
    );
 }
