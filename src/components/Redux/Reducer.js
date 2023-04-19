@@ -9,29 +9,43 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVORITE:
+      const addFavorite = [...state.allCharacters, action.payload]
       return {
         ...state,
-       allCharacters:[...state.allCharacters, action.payload]
+        myFavorites: [...addFavorite], 
+        allCharacters: [...addFavorite],
       };
 
     case REMOVE_FAVORITE:
+      const removeFavorite = state.allCharacters.filter(e => e.id !== action.payload)
       return {
         ...state,
-       myFavorites: state.myFavorites.filter(favorite => favorite.id !== action.payload)
+        myFavorites: [...removeFavorite],
+        allCharacters: [...removeFavorite],
       };
 
     case FILTER:
       return {
         ...state,
-        allCharacters: state.allCharacters.filter(favorite => favorite.id === action.payload),
+        myFavorites: state.allCharacters.filter(e => e.gender === action.payload),
       };
 
-
-    
-    case 'ORDER':
+    case ORDER:
+      let sortedCharacters;
+        if (action.payload === "Ascendente") {
+          sortedCharacters = state.myFavorites.sort((a, b) => a.id > b.id ? 1 : -1);
+        } else {
+          sortedCharacters = state.myFavorites.sort((a, b) => a.id < b.id ? 1 : -1);
+        }
       return {
         ...state,
-        allCharacters: state.allCharacters.sort((a,b) => a.id - b.id)
+        myFavorites: [...sortedCharacters],
+      };
+    
+    case 'RESET':
+      return {
+        ...state,
+        myFavorites: state.allCharacters,
       }
 
     default:

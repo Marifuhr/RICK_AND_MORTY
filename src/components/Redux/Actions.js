@@ -16,10 +16,10 @@
     type: REMOVE_FAVORITE, 
     payload: id}
  }
- export const filterCards = (status) => {
+ export const filterCards = (gender) => {
    return{
     type: FILTER, 
-    payload: status}
+    payload: gender}
  }
  export const orderCards = (id) => {
    return{
