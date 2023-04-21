@@ -1,0 +1,105 @@
+.general {
+    background-image: url(https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2021/06/17/el-viejo-y-el-vater.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+  
+    background-color: #0e0d0d;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  
+  } 
+  .title-general {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+  
+  /* .title {
+    font-family: 'Pacifico', cursive;
+    font-size: 6rem;
+    color: #ff69b4;
+    animation: title-animation 10S linear infinite;
+  }
+  
+  @keyframes title-animation {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+   */
+    .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* .title {
+    font-family: 'DynaPuff', cursive;
+    font-family: 'Henny Penny', cursive;
+    font-size: 6rem;
+    color: #ff69b4;
+    opacity: 0;
+    transform: scale(0);
+    animation: title-animation 5s ease-in-out forwards;
+  }
+  
+  @keyframes title-animation {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    } */
+  
+    .title {
+        font-family: 'DynaPuff', cursive;
+    font-family: 'Henny Penny', cursive;
+        font-size: 6rem;
+        color: #ff69b4;
+        opacity: 0;
+        animation: title-animation 2s ease-in-out forwards;
+        
+      }
+      
+      
+      .title span {
+        display: inline-block;
+        animation: letter-fall 1s ease-in-out forwards;
+       
+      }
+      
+      @keyframes title-animation {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes letter-fall {
+        0% {
+          transform: translateY(-200%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
