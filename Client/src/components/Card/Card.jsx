@@ -4,9 +4,19 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { addFavorite, removeFavorite } from '../Redux/Actions';
 
-function Card({ id, name,  species, gender, image, onClose, addFavorite, removeFavorite }) {
+function Card({
+  id,
+  name,
+  species,
+  gender,
+  image,
+  onClose,
+  addFavorite,
+  removeFavorite,
+  myFavorites,
+}) {
 
-const [myFavorites, setMyFavorites] = useState([])
+
 const [isFav, setIsFav]= useState(false)
 
   const handleFavorite = () => {
@@ -21,14 +31,12 @@ const [isFav, setIsFav]= useState(false)
  //---El useEffect comprueba que la card esté dentro de favoritos------- 
   //---El useEfect actualiza la lista de favorito------------------------
   useEffect(() => {
-   if(myFavorites.length > 0) {
-    myFavorites.forEach(fav =>{
-      if(fav.id === id){
-        setIsFav(true)
+    myFavorites.forEach((fav) => {
+      if (fav.id === id) {
+        setIsFav(true);
       }
-    })
-   }
-  }, [id, myFavorites])
+    });
+  }, [myFavorites, id]);
 
 
    return (
@@ -44,7 +52,11 @@ const [isFav, setIsFav]= useState(false)
         <button className={styles.corazon} onClick={handleFavorite}>🤍
         </button>
       )}
-
+       {isFav ? null : (
+         <button onClick={onClose} className={styles.button}>
+           X
+         </button>
+       )}
       
       {/* !props.isFavorite && (<button className={styles.buttonCard} onClick={props.onClose}> X </button>) */}
      

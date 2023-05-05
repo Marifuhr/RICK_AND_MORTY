@@ -1,26 +1,24 @@
-import React from 'react'
-import {useSelector, useDispatch} from "react-redux"
+import { connect } from "react-redux"
+import { useDispatch} from "react-redux"
 import Card from '../Card/Card'
 import styles from './Favorites.module.css'
 import {filterCards, orderCards} from "../Redux/Actions"
 
- const Favorites = ()=> {
-     
-     const favorites = useSelector((state)=> state.myFavorites)
+ const Favorites = ({myFavorites})=> {
     
-     const dispatch = useDispatch();
+   const dispatch = useDispatch();
+   const handleClick = (e) => {
+     const { name, value } = e.target;
+     switch (name) {
+       case "order":
+         return dispatch(orderCards(value));
+       case "filter":
+         return dispatch(filterCards(value));
+       default:
+         break;
+     }
+   };
      
-     const handleOrder = (event)=>{
-         dispatch(orderCards(event.target.value))
-         console.log("aqui estoy")
-        }
-        
-        
-        const handleFilter = (event) => {
-              dispatch(filterCards(event.target.value));
-            };
-
-
     // // /*   const filter = useRef(null);
     //     const order = useRef(null); 
           
@@ -37,32 +35,16 @@ import {filterCards, orderCards} from "../Redux/Actions"
                    <h1 className={styles.Favoritos}>Favoritos</h1>
         
                    <div className={styles.selectores}>
-                     <select
-                       id="orderSelect"
-                       onChange={handleOrder}
-                   defaultValue="order"
+                     <select name="order" onChange={handleClick}
                      >
-                       <option value="order" disabled>
-                         Ordenar en
-                       </option>
                        <option value="Ascendente">Ascendente</option>
                        <option value="Decendente">Descendente</option>
                      </select>
         
-                     <select
-                       id="filterSelect"
-                       onChange={(event) => {
-                         if (event.target.value === "reset") {
-                           handleReset();
-                         } else {
-                           handleFilter(event);
-                         }
-                       }}
-                       defaultValue="filter"
+                     <select name="filter" onChangeCapture={(e) => {
+                       dispatch(filterCards(e.target.value));
+                     }}
                      >
-                       <option value="filter" disabled>
-                         Filtrar por
-                       </option>
                        <option value="Male">Masculino</option>
                        <option value="Female">Femenino</option>
                        <option value="Genderless">Sin Genero</option>
@@ -77,13 +59,17 @@ import {filterCards, orderCards} from "../Redux/Actions"
         
                  <div className={styles.rightContainer}>
                    <div className={styles.containerFavoritos}>
-                     {
-         favorites.map
-         ((fav) => (
-        <Card key={
-         fav.id
-         } {...fav} isFavorite={true} />
+                     {myFavorites?.map(({ id, name, species, image, gender }) => (
+                       <Card
+                         id={id}
+                         key={id}
+                         name={name}
+                         species={species}
+                         image={image}
+                         gender={gender}
+                       />
                      ))}
+       
                </div>
                  </div>
                </div>
@@ -91,7 +77,13 @@ import {filterCards, orderCards} from "../Redux/Actions"
            );
          }
         
-         export default Favorites;
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export default connect(mapStateToProps, null)(Favorites);
 
 // import React, { /* useRef */ } from "react"
 // import { useSelector, useDispatch } from "react-redux";

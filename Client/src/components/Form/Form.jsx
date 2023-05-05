@@ -13,6 +13,8 @@ export default function Form(props) {
     password: "",
   });
 
+  
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData({
@@ -24,13 +26,13 @@ export default function Form(props) {
         ...userData,
         [name]: value,
       })
-    );
-  };
+      );
+    };
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      props.login(userData);
+    };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.login(userData);
-  };
 
   return (
   

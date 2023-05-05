@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Card from '../Card/Card';
 import styles from './Cards.module.css'
 
@@ -8,8 +8,7 @@ import styles from './Cards.module.css'
    return ( 
        <div className={styles.container}>
          {
-   characters.map
-   ((char) => (
+   characters.map((char) => (
            <Card
              key={ char.name
    }

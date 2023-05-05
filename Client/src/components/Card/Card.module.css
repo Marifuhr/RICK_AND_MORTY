@@ -9,7 +9,7 @@
   height: 380px;
   background-color: rgb(231, 224, 214);
 }
-@keyframes flotar {
+/* @keyframes flotar {
     0% {
       transform: translateY(0);
     }
@@ -19,7 +19,7 @@
     100% {
       transform: translateY(0);
     }
-  }
+  } */
   
   .containerCard {
     animation: flotar 2s ease-in-out infinite;

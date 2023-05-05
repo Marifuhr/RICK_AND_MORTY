@@ -17,8 +17,9 @@ export default function Detail(props) {
             console.log(error)
             alert("Ups algo fallo")
         })
-        },[detailId]);
-        
+    
+    return () => setCharacter({});
+}, [detailId]);
     
     return(
         <div>

@@ -15,6 +15,9 @@ const NavLinkMe = ({to, children, ...props}) =>{
 }
 export default function Nav(props){
     // console.log(props)
+    const handleLogOut = () => {
+        props.logOut();
+    };
     
     return(
         <div className={styles.barra}>
@@ -23,7 +26,7 @@ export default function Nav(props){
             <NavLinkMe to="/favorites">Favoritos</NavLinkMe>
             <SearchBar onSearch={(characterID) => props.onSearch(characterID)} logOut={props.logOut} />
        
-
+            <button onClick={handleLogOut}>LogOut</button>
          
 
         </div>

@@ -1,57 +1,48 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE, FILTER, ORDER } from "./Actions";
-
-
+import { ADD_FAVORITE, REMOVE_FAVORITE, FILTER, ORDER } from "./actionsTypes";
 const initialState = {
   myFavorites: [],
-  allCharacters: []
-}
+  allCharacters: [],
+};
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case ADD_FAVORITE:
-      const addFavorite = [...state.allCharacters, action.payload]
       return {
-        ...state,
-        myFavorites: [...addFavorite], 
-        allCharacters: [...addFavorite],
+        ...state, myFavorites: payload, allCharacters: payload
       };
-
     case REMOVE_FAVORITE:
-      const removeFavorite = state.allCharacters.filter(e => e.id !== action.payload)
       return {
-        ...state,
-        myFavorites: [...removeFavorite],
-        allCharacters: [...removeFavorite],
-      };
-
-    case FILTER:
-      return {
-        ...state,
-        myFavorites: state.allCharacters.filter(e => e.gender === action.payload),
-      };
-
-    case ORDER:
-      let sortedCharacters;
-        if (action.payload === "Ascendente") {
-          sortedCharacters = state.myFavorites.sort((a, b) => a.id > b.id ? 1 : -1);
-        } else {
-          sortedCharacters = state.myFavorites.sort((a, b) => a.id < b.id ? 1 : -1);
-        }
-      return {
-        ...state,
-        myFavorites: [...sortedCharacters],
-      };
-    
-    case 'RESET':
-      return {
-        ...state,
-        myFavorites: state.allCharacters,
+        ...state, myFavorites: payload
       }
+    case FILTER:
+      const filterByGender = [...state.allCharacters].filter(
+        (char) => char.gender.toLowerCase() === payload.toLowerCase()
+      );
+      return {
+        ...state,
+        myFavorites: filterByGender,
+      };
+    case ORDER:
+      const filterByOrder = [...state.allCharacters].sort((a, b) => {
+        if (a.id > b.id) {
+          return payload === "Ascendente" ? 1 : -1;
+        } else if (a.id < b.id) {
+          return payload === "Descendente" ? 1 : -1;
+        } else {
+          return 0;
+        }
+        /* if (payload === "Ascendente" && a.id > b.id) {
+          return 1;
+        } else if (payload === "Ascendente" && a.id < b.id) return -1; */
+      });
+      return {
+        ...state,
+        myFavorites: filterByOrder,
+      };
 
     default:
-      return state ;
+      return { ...state };
   }
+};
 
-}
-
-export default rootReducer;
+export default reducer;
