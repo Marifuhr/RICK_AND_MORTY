@@ -10,6 +10,12 @@ export default function Form(props) {
     userName: "",
     password: "",
   });
+<<<<<<< HEAD
+=======
+
+  
+  
+>>>>>>> 08d158118ff4b319bbad4ebe463872884b72c213
   const handleChange = (event) => {
     const { name, value } = event.target;
     
@@ -22,6 +28,7 @@ export default function Form(props) {
         ...userData,
         [name]: value,
       })
+<<<<<<< HEAD
     );
   };
   const handleSubmit = (event) => {
@@ -29,6 +36,16 @@ export default function Form(props) {
     props.login(userData);
   };
   
+=======
+      );
+    };
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      props.login(userData);
+    };
+
+
+>>>>>>> 08d158118ff4b319bbad4ebe463872884b72c213
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <img

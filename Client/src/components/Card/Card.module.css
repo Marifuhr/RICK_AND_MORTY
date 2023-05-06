@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
   display: flex;
   flex-direction: column;
@@ -7,6 +8,39 @@
   background-color: aliceblue;
   transition: all 0.5s ease;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+=======
+.containerCard{
+    display: inline-flex;
+    flex-direction:column;
+    border-color: rgb(163, 170, 168);
+    border-style:outset;
+    border-radius: 10%;
+    margin: 120px 10px 0px 10px;    
+    width: 250px;
+  height: 380px;
+  background-color: rgb(231, 224, 214);
+}
+/* @keyframes flotar {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  } */
+  
+  .containerCard {
+    animation: flotar 2s ease-in-out infinite;
+  }
+
+.containerCard:hover{
+   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+   
+    
+>>>>>>> 08d158118ff4b319bbad4ebe463872884b72c213
 }
 
 .container:hover {

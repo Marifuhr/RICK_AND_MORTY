@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./Detail.module.css";
 export default function Detail(props) {
+<<<<<<< HEAD
   const navigate = useNavigate();
   const { detailId } = useParams();
   const [character, setCharacter] = useState({});
@@ -21,6 +22,27 @@ export default function Detail(props) {
     <div className={styles.container}>
       <button onClick={() => navigate(-1)}>Regresar</button>
       <div className={styles.containerInfo}>
+=======
+    const navigate = useNavigate()
+    const {detailId} = useParams()
+    const [character, setCharacter] = useState({})
+
+    useEffect(()=>{
+        fetch(`http://localhost:3001/rickandmorty/character/${detailId}`)
+        .then((res)=> res.json())
+        .then((data)=>{
+            data.name ? setCharacter(data) : window.alert("No hay personaje con ese ID")
+        })
+        .catch((error)=>{
+            console.log(error)
+            alert("Ups algo fallo")
+        })
+    
+    return () => setCharacter({});
+}, [detailId]);
+    
+    return(
+>>>>>>> 08d158118ff4b319bbad4ebe463872884b72c213
         <div>
           <h1>Name: {character.name}</h1>
           <h1>Status: {character.status}</h1>

@@ -29,3 +29,26 @@ export default function Nav(props) {
     </div>
   );
 }
+<<<<<<< HEAD
+=======
+export default function Nav(props){
+    // console.log(props)
+    const handleLogOut = () => {
+        props.logOut();
+    };
+    
+    return(
+        <div className={styles.barra}>
+            <NavLinkMe to="/home">Home</NavLinkMe>
+            <NavLinkMe to="/about">About</NavLinkMe>
+            <NavLinkMe to="/favorites">Favoritos</NavLinkMe>
+            <SearchBar onSearch={(characterID) => props.onSearch(characterID)} logOut={props.logOut} />
+       
+            <button onClick={handleLogOut}>LogOut</button>
+         
+
+        </div>
+       
+    )
+}
+>>>>>>> 08d158118ff4b319bbad4ebe463872884b72c213
