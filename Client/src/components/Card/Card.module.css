@@ -1,67 +1,65 @@
-.containerCard{
-    display: inline-flex;
-    flex-direction:column;
-    border-color: rgb(163, 170, 168);
-    border-style:outset;
-    border-radius: 10%;
-    margin: 120px 10px 0px 10px;    
-    width: 250px;
-  height: 380px;
-  background-color: rgb(231, 224, 214);
-}
-@keyframes flotar {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
-  .containerCard {
-    animation: flotar 2s ease-in-out infinite;
-  }
-
-.containerCard:hover{
-   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-   
-    
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  height: 270px;
+  border-radius: 20px;
+  background-color: aliceblue;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
-.infoCard{
-    justify-content: center;
-    font-size: 13px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    display:inline-block;
-    margin-top: -5px;
-    
+.container:hover {
+  transform: scale(1.1);
 }
 
-.infoName{
-    font-size: 20px;
-    background-color: aliceblue;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
-    
-  }
-
-.image{
-    justify-content: center;
-    width: 98%;
-    
-}
-.image:hover{
-    
-    box-shadow: 3px 6px 6px rgb(144, 231, 13);
+.buttonContainer {
+  display: flex;
+  justify-content: space-between
 }
 
-.button{
-    margin:auto;
-    background-color: greenyellow;
+.button {
+  border-radius: 20px;
+  margin: 10px 10px 0 0;
+  border: none;
+  background-color: red;
+  color: aliceblue;
 }
-.link{
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+img {
+  width: 200px;
+  border-radius: 10px 10px 0 0;
+}
+.imageContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 10px;
+  align-items: center;
+}
+.name {
+  background-color: rgba(0, 255, 255, 0.6);
+  position: absolute;
+  margin-bottom: 0px;
+}
+.propsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+  margin: 0px;
+  color: aqua;
+  border-radius: 0 0 20px 20px;
+}
+
+.propsContainer h2 {
+    margin: 0;
+}
+
+.link {
   text-decoration: none;
   color: inherit;
 }

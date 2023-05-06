@@ -1,52 +1,24 @@
-   .containerSearch{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.container {
+  display: flex;
+  justify-content: center;
 }
- .containerSearch.transparencia {
-    opacity: 0.8;
-  }   
-
-.input{
-    
-    width: 70%;
-    height: 25px;
-    margin: 22px 5px 10px 420px;
-    border: 5% rgb(202, 188, 188);
-    border-style: outset;
-    border-radius: 5%;
-    
+input {
+  background-color: rgba(240, 32, 177, 0.6);
+  font-family: cursive;
+  border-radius: 10px;
+  border-color: rgb(184, 62, 214);
+  outline: none;
+  box-shadow: 5% 10% rgb(133, 119, 119);
+}
+button {
+  border-radius: 3%;
+  border-color: rgb(212, 0, 255);
+  color: rgb(255, 0, 119);
+  background-color: #282c34;
 }
 
-.button{
-    font-size: 15px;
-    border-style:outset;
-    border-color: bisque;
-    margin: 16px 5px 18px 5px;
-    border-radius: 5px;
-}
-.button:hover{
-    background-color: rgb(71, 238, 38);
-}
-.aleatorio{
-    font-size: 15px;
-    border-style:outset;
-    border-color: bisque;
-    margin: 16px 5px 18px 5px;
-    border-radius: 5px;
-}
-.aleatorio:hover{
-    background-color: rgb(223, 118, 223);
-}
-.buttonSalir{
-    margin:16px 5px 18px 5px;
-    border-style:double;
-    border-radius: 10px;
-    font-size: 15px;
-    box-shadow: 5px 2px rgb(134, 123, 123);
-
-}
-.buttonSalir:hover{
-    background-color: rgb(55, 103, 236);
+button:hover {
+  color: #282c34;
+  background-color: rgb(19, 230, 47);
+  cursor: pointer;
 }

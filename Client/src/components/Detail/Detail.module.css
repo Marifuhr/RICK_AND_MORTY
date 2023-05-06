@@ -1,18 +1,8 @@
-.regreso{
-   
-   justify-content: center;
-   font-size: 18px;
-   margin-top: 5%;
-   background-color: rgb(245, 51, 219);
-
+.container {
+    
+    color: aliceblue;
 }
-
-
-.detail{
-    font-size: 15px;
-    font-family: 'DynaPuff', cursive;
-}
-
-.detail ::first-letter{
-    background-color: rgb(135, 235, 218);
+.containerInfo{
+display: flex;
+    justify-content: space-around;
 }
